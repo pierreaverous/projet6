@@ -43,3 +43,58 @@ function photographerFactory(data) {
     }
     return { name, picture, getUserCardDOM }
 }
+
+
+const photographerFactoryPage = (photographerObject) => { // Get photographer object
+    const {
+      name, portrait, city, country, tagline,
+    } = photographerObject; // key/value name, portrait etc. 
+    const picture = `assets/photographers/${portrait}`;
+  
+    const createPhotographerCardDOMPage = () => { // Build DOM
+        //creation des element 
+      const article = document.createElement('article');
+      const div = document.createElement('div');
+      const divPhoto = document.createElement('div');
+      const divButton = document.createElement('div')
+      const img = document.createElement('img');
+      img.setAttribute('src', picture);
+      img.setAttribute('alt', `${name}`);
+      const h1 = document.createElement('h1');
+      h1.textContent = name;
+      const h2 = document.createElement('h2');
+      h2.textContent = `${city}, ${country}`;
+      const h3 = document.createElement('h3');
+      h3.textContent = tagline;
+      
+      const span = document.createElement('span');
+      span.innerHTML = '<button tabindex="4" class="contact-button" role="button" onclick="displayModal()">Contactez-moi</button>';
+      // ajout des classe pour le css
+      img.classList.add("Photograph");
+      h1.classList.add('name');
+      h2.classList.add("localisation");
+      h3.classList.add("tagline")
+      article.classList.add("article")
+      div.classList.add("divTextHeader")
+      divPhoto.classList.add("divPhoto")
+      divButton.classList.add("divButton")
+     
+
+      //ce qui apparais dans la page photographer
+      article.appendChild(div);
+      divButton.appendChild(span);
+      article.appendChild(divButton)
+      article.appendChild(divPhoto);
+      divPhoto.appendChild(img);
+      div.appendChild(h1);
+      div.appendChild(h2);
+      div.appendChild(h3);
+      
+      
+      return article;
+    };
+  
+    return { // an object
+      createPhotographerCardDOMPage,
+    };
+  };

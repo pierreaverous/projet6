@@ -15,14 +15,6 @@ async function getPhotographers() {
 
 }
 
-/* function recupId(){
-    let params =(new URL(document.location)).searchParams;
-    let name = params.get('nom');
-    console.log(name)
-    
-}
-console.log(recupId(name)) */
-
 
 async function displayData(photographers) {
     const photographersSection = document.querySelector(".photographer_section");
