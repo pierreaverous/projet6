@@ -136,3 +136,42 @@ form input {
     outline: none;
     border: 2px solid #901C1C;
 }
+/* Media video et image css  */
+.photograph-media-cards{
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: center;
+    
+}
+
+.PhotographMedia{
+    height: 350px;
+    width: 300px;
+    border-radius: 8px;
+    margin: 30px;
+    
+    object-fit: cover;
+    /* right: 9rem;
+    position: absolute;
+    top: 8.9rem;*/
+} 
+
+
+
+.video-card{
+    width: 300px;
+    height: 350px;
+    border-radius: 8px;
+    margin: 50px;
+    margin-top: -10%;
+    
+    
+}
+
+.titleMedia{
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+    margin-top: -5%
+}

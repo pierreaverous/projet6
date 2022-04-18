@@ -45,56 +45,220 @@ function photographerFactory(data) {
 }
 
 
-const photographerFactoryPage = (photographerObject) => { // Get photographer object
-    const {
-      name, portrait, city, country, tagline,
-    } = photographerObject; // key/value name, portrait etc. 
-    const picture = `assets/photographers/${portrait}`;
-  
-    const createPhotographerCardDOMPage = () => { // Build DOM
-        //creation des element 
-      const article = document.createElement('article');
-      const div = document.createElement('div');
-      const divPhoto = document.createElement('div');
-      const divButton = document.createElement('div')
-      const img = document.createElement('img');
-      img.setAttribute('src', picture);
-      img.setAttribute('alt', `${name}`);
-      const h1 = document.createElement('h1');
-      h1.textContent = name;
-      const h2 = document.createElement('h2');
-      h2.textContent = `${city}, ${country}`;
-      const h3 = document.createElement('h3');
-      h3.textContent = tagline;
-      
-      const span = document.createElement('span');
-      span.innerHTML = '<button tabindex="4" class="contact-button" role="button" onclick="displayModal()">Contactez-moi</button>';
-      // ajout des classe pour le css
-      img.classList.add("Photograph");
-      h1.classList.add('name');
-      h2.classList.add("localisation");
-      h3.classList.add("tagline")
-      article.classList.add("article")
-      div.classList.add("divTextHeader")
-      divPhoto.classList.add("divPhoto")
-      divButton.classList.add("divButton")
-     
+// page photographe individuelle 
 
-      //ce qui apparais dans la page photographer
-      article.appendChild(div);
-      divButton.appendChild(span);
-      article.appendChild(divButton)
-      article.appendChild(divPhoto);
-      divPhoto.appendChild(img);
-      div.appendChild(h1);
-      div.appendChild(h2);
-      div.appendChild(h3);
-      
-      
-      return article;
-    };
+function photographerFactoryPage(dataID) {
+  const { name, portrait, id, city, country, tagline, price } = dataID;
+
+  const picture = `assets/photographers/${portrait}`;
+
+  function createPhotographerCardDOMPage() {
+    const article = document.createElement('article');
+    const div = document.createElement('div');
+    const divPhoto = document.createElement('div');
+    const divButton = document.createElement('div')
+    const img = document.createElement('img');
+    img.setAttribute('src', picture);
+    img.setAttribute('alt', `${name}`);
+    const h1 = document.createElement('h1');
+    h1.textContent = name;
+    const h2 = document.createElement('h2');
+    h2.textContent = `${city}, ${country}`;
+    const h3 = document.createElement('h3');
+    h3.textContent = tagline;
+    
+    const span = document.createElement('span');
+    span.innerHTML = '<button tabindex="4" class="contact-button" role="button" onclick="displayModal()">Contactez-moi</button>';
+    // ajout des classe pour le css
+    img.classList.add("Photograph");
+    h1.classList.add('name');
+    h2.classList.add("localisation");
+    h3.classList.add("tagline")
+    article.classList.add("article")
+    div.classList.add("divTextHeader")
+    divPhoto.classList.add("divPhoto")
+    divButton.classList.add("divButton")
+   
+
+    //ce qui apparais dans la page photographer
+    article.appendChild(div);
+    divButton.appendChild(span);
+    article.appendChild(divButton)
+    article.appendChild(divPhoto);
+    divPhoto.appendChild(img);
+    div.appendChild(h1);
+    div.appendChild(h2);
+    div.appendChild(h3);
+
+      return (article);
+  }
+  return { name, picture,createPhotographerCardDOMPage }
+}
+
+//Media Factory 
+class Media {
+  constructor ({title , id, date , photographerId, like, price, src}
+    ){
+    this.title = title;
+    this.id = id;
+    this.date = date;
+    this.photographerId = photographerId;
+    this.like  = like ;
+    this.price =price;
+    this.src = src;
+    
+  } 
+  createMediaDOMPage(){
+
+
+  }
+
+}
+
+class MediaImg extends Media{
+  constructor(data){
+    super({...data, src: data.image})
+
+  }
+  createMediaDOMPage(){
+    const article = document.createElement('article');
+    const div = document.createElement('div');
+    const divPhoto = document.createElement('div');
+    const img = document.createElement('img');
+    img.setAttribute('src',`/assets/photographers/${this.photographerId}/${this.src}`);
+    
+    const h1 = document.createElement('h1');
+    h1.textContent = this.title;
+    const h2 = document.createElement('h2');
+    const h3 = document.createElement('h3');
+    const span = document.createElement('span');
+    // ajout des classe pour le css
+    img.classList.add("PhotographMedia");
+    h1.classList.add("titleMedia")
+    
+   
+
+    //ce qui apparais dans la page photographer
+    article.appendChild(div);
+    article.appendChild(img);
+    article.appendChild(h1);
+    
+
+
+
+    return article;
+  }
+
+}
+class MediaVideo extends Media{
+  constructor(data){
+    super({...data, src: data.video})
+
+  }
+  createMediaDOMPage(){
+    const article = document.createElement('article');
+    const video = document.createElement('video')
+    const div = document.createElement('div');
+    const divPhoto = document.createElement('div');
+    const img = document.createElement('img');
+   video.setAttribute('src',`/assets/photographers/${this.photographerId}/${this.src}`);
+   video.setAttribute("type", "video/mp4");
+   video.setAttribute("poster", `/assets/photographers/${this.photographerId}/${this.src}`)
+   video.setAttribute("controls", false);
+   video.setAttribute("autoplay", true);
+   
+   const h1 = document.createElement('h1');
+   h1.textContent = this.title;
+  const span = document.createElement('span');
+    // ajout des classe pour le css
+    
+   
+   
+    video.classList.add("video-card")
+    h1.classList.add("titleMedia")
+
+    
+   
+
+    //ce qui apparais dans la page photographer
+    
+    article.appendChild(video);
+    article.appendChild(h1);
+   
+
+    return article;
+  }
+
   
-    return { // an object
-      createPhotographerCardDOMPage,
-    };
-  };
+
+}
+
+
+
+
+function MediaFactoryPage(data) {
+  if (data.hasOwnProperty('image')){
+    return new MediaImg(data)
+  }
+  if (data.hasOwnProperty('video')){
+    return new MediaVideo(data)
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
