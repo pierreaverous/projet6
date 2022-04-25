@@ -123,15 +123,13 @@ class MediaImg extends Media{
   createMediaDOMPage(){
     const article = document.createElement('article');
     const div = document.createElement('div');
-    const divPhoto = document.createElement('div');
     const img = document.createElement('img');
+    const a = document.createElement('a');
     img.setAttribute('src',`/assets/photographers/${this.photographerId}/${this.src}`);
     
     const h1 = document.createElement('h1');
     h1.textContent = this.title;
-    const h2 = document.createElement('h2');
-    const h3 = document.createElement('h3');
-    const span = document.createElement('span');
+    
     // ajout des classe pour le css
     img.classList.add("PhotographMedia");
     h1.classList.add("titleMedia")
@@ -139,8 +137,10 @@ class MediaImg extends Media{
    
 
     //ce qui apparais dans la page photographer
+    article.appendChild(a);
+    a.appendChild(img);
+    
     article.appendChild(div);
-    article.appendChild(img);
     article.appendChild(h1);
     
 
@@ -158,9 +158,7 @@ class MediaVideo extends Media{
   createMediaDOMPage(){
     const article = document.createElement('article');
     const video = document.createElement('video')
-    const div = document.createElement('div');
-    const divPhoto = document.createElement('div');
-    const img = document.createElement('img');
+    
    video.setAttribute('src',`/assets/photographers/${this.photographerId}/${this.src}`);
    video.setAttribute("type", "video/mp4");
    video.setAttribute("poster", `/assets/photographers/${this.photographerId}/${this.src}`)
@@ -169,7 +167,7 @@ class MediaVideo extends Media{
    
    const h1 = document.createElement('h1');
    h1.textContent = this.title;
-  const span = document.createElement('span');
+  
     // ajout des classe pour le css
     
    
