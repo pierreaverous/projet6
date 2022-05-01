@@ -1,0 +1,95 @@
+.modal-lightBox {
+  position: fixed;
+  top: 50%;
+  /* centered */
+  left: 50%;
+  /* centered */
+  transform: translate(-50%, -50%);
+  /* centered */
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  background-color: white;
+  
+}
+
+#lightbox_modal {
+  display: none;
+}
+
+#articleToShow{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: initial;
+}
+
+.articleLightBox{
+  height: 90%;
+  width: 80%;
+}
+
+
+#modal-lightBox__close {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  position: fixed;
+  top: 2%;
+  right: 0;
+  left: auto;
+  margin-right: 40px;
+  z-index: 11;
+}
+
+#arrowLightbox{
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  position: fixed;
+  top: 50%;
+  margin-top: -14px;
+  transform: rotate(180deg);
+  margin-left: 40px;
+  z-index: 11;
+  
+}
+#arrowLightboxleft{
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  position: fixed;
+  top: 50%;
+  margin-top: -14px;
+  right: 0;
+  left: auto;
+  margin-right: 40px;
+  z-index: 11;
+}
+
+
+.PhotographModalLightbox{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+/* partie video */
+.video-card-lightbox{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+video{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.titleMedia-lightBox{
+   margin-left: 20px;
+  margin-top: 0px;
+}
+
+

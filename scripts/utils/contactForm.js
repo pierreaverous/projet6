@@ -1,6 +1,7 @@
 // CONTACT FORM
 
 // Contact modal informations 
+
 const main = document.getElementById('main');
 const contactModal = document.getElementById('contact_modal')
 const onOpenModal = () => {

@@ -1,5 +1,6 @@
 @import url("photographer.css");
 @import url("modalContact.css");
+@import url('lightBox.css');
 
 body {
     font-family: "DM Sans", sans-serif;
@@ -70,4 +71,9 @@ h1 {
   color:#757575;
   font-size: 9px;
   font-weight: 400;
+}
+
+article{
+
+    cursor: pointer;
 }

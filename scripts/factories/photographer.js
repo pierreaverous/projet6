@@ -124,8 +124,8 @@ class MediaImg extends Media{
     const article = document.createElement('article');
     const div = document.createElement('div');
     const img = document.createElement('img');
-    const a = document.createElement('a');
     img.setAttribute('src',`/assets/photographers/${this.photographerId}/${this.src}`);
+    img.innerHTML = '<role="button" onclick="displayModal()"></button>';
     
     const h1 = document.createElement('h1');
     h1.textContent = this.title;
@@ -137,18 +137,46 @@ class MediaImg extends Media{
    
 
     //ce qui apparais dans la page photographer
-    article.appendChild(a);
-    a.appendChild(img);
+    article.appendChild(img);
+    article.appendChild(div);
+    article.appendChild(h1);
+  
+
+
+
+    return article;
+  }
+  createModalContent(){
+    const article = document.createElement('article');
+    const div = document.createElement('div');
+    const img = document.createElement('img');
+    img.setAttribute('src',`/assets/photographers/${this.photographerId}/${this.src}`);
+    img.innerHTML = '<role="button" onclick="displayModal()"></button>';
     
+    const h1 = document.createElement('h1');
+    h1.textContent = this.title;
+    
+    // ajout des classe pour le css
+    img.classList.add("PhotographModalLightbox");
+    h1.classList.add("titleMedia-lightBox")
+    article.classList.add("articleLightBox")
+    
+    
+   
+
+    //ce qui apparais dans la page photographer
+    article.appendChild(img);
     article.appendChild(div);
     article.appendChild(h1);
     
+  
 
 
 
     return article;
   }
 
+  
 }
 class MediaVideo extends Media{
   constructor(data){
@@ -158,12 +186,15 @@ class MediaVideo extends Media{
   createMediaDOMPage(){
     const article = document.createElement('article');
     const video = document.createElement('video')
+    const src = document.createElement('source')
     
    video.setAttribute('src',`/assets/photographers/${this.photographerId}/${this.src}`);
    video.setAttribute("type", "video/mp4");
-   video.setAttribute("poster", `/assets/photographers/${this.photographerId}/${this.src}`)
+   video.setAttribute("poster", `./assets/photographers/${this.photographerId}/${this.src}`)
    video.setAttribute("controls", false);
-   video.setAttribute("autoplay", true);
+   video.setAttribute("autoplay", false);
+   src.setAttribute('src', `./assets/photographers/${this.photographerId}/${this.src}`)
+   src.setAttribute('type', 'video/mp4')
    
    const h1 = document.createElement('h1');
    h1.textContent = this.title;
@@ -172,8 +203,11 @@ class MediaVideo extends Media{
     
    
    
-    video.classList.add("video-card")
-    h1.classList.add("titleMedia")
+    video.classList.add("video-card");
+    h1.classList.add("titleMedia");
+    
+    
+    
 
     
    
@@ -181,13 +215,53 @@ class MediaVideo extends Media{
     //ce qui apparais dans la page photographer
     
     article.appendChild(video);
+    video.appendChild(src);
     article.appendChild(h1);
-   
 
+   
+    
     return article;
   }
 
   
+
+  createModalContent(){
+    const article = document.createElement('article');
+    const video = document.createElement('video')
+    const src = document.createElement('source')
+    
+   video.setAttribute('src',`/assets/photographers/${this.photographerId}/${this.src}`);
+   video.setAttribute("type", "video/mp4");
+   video.setAttribute("poster", `./assets/photographers/${this.photographerId}/${this.src}`)
+   video.setAttribute("controls", false);
+   video.setAttribute("autoplay", false);
+   src.setAttribute('src', `./assets/photographers/${this.photographerId}/${this.src}`)
+   src.setAttribute('type', 'video/mp4')
+   
+   const h1 = document.createElement('h1');
+   h1.textContent = this.title;
+  
+    // ajout des classe pour le css
+    
+   
+   
+    video.classList.add("video-card-light")
+    h1.classList.add("titleMedia-lightBox")
+    article.classList.add("articleLightBox");
+
+    
+   
+
+    //ce qui apparais dans la page photographer
+    
+    article.appendChild(video);
+    video.appendChild(src);
+    article.appendChild(h1);
+
+   
+    
+    return article;
+  }
 
 }
 

@@ -157,15 +157,15 @@ form input {
     top: 8.9rem;*/
 } 
 
-
-
+video{
+    object-fit: cover;
+}
 .video-card{
     width: 300px;
     height: 350px;
     border-radius: 8px;
-    margin: 50px;
-    margin-top: -10%;
-    
+    margin: 30px;
+    object-fit: cover;
     
 }
 

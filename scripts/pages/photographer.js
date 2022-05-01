@@ -16,7 +16,7 @@ async function getPhotographersById() {
     (element) => element.id == photographerId
   );
 
- /*  console.log(photographerToDisplay) */
+  /*  console.log(photographerToDisplay) */
   // et bien retourner le tableau photographers seulement une fois
   return photographerToDisplay
 }
@@ -53,35 +53,46 @@ async function getPhotographersByMedia() {
   const searchParams = new URLSearchParams(window.location.search);
   const photographerId = searchParams.get('id');
   const mediasToDisplay = data.media.filter( // = objects containing this photographer id
-  (element) => element.photographerId == photographerId,
-);
-  
+    (element) => element.photographerId == photographerId,
+  );
+
   /* console.log(photographerToDisplay) */
   // et bien retourner le tableau photographers seulement une fois
   console.log(mediasToDisplay)
-  return mediasToDisplay 
+  return mediasToDisplay
 }
 
 
-async function displayPhotographerMedia(photographerObjectMedia) {
-
+async function displayPhotographerMedia(photographerObjectMediaTab) {
+  console.log(photographerObjectMediaTab)
   const photographerMedia = document.querySelector('.photograph-media-cards');
   /* console.log(photographerObject) */
-  photographerObjectMedia.forEach((photographerObjMedia) => {
+
+  let index = 0;
+  photographerObjectMediaTab.forEach((photographerObjMedia) => {
+   
     const photographerModelById = MediaFactoryPage(photographerObjMedia);
     const userCardByIdDOM = photographerModelById.createMediaDOMPage();
-   /*  console.log(userCardByIdDOM) */
+    /*  console.log(userCardByIdDOM) */
     photographerMedia.appendChild(userCardByIdDOM);
-  })
-  
 
+    addEventModal(userCardByIdDOM, index, photographerObjectMediaTab)
+    ////Ajout de la fonction pour la light box prendre exemple au dessus re creer un dom dans das lightboxjs
+    index += 1;
+   
+   
+  })
 
 };
+
+function addEventModal(userCardByIdDOM, index, photographerObjectMediaTab) {
+  userCardByIdDOM.addEventListener('click', () => displayModalLightbox(index, photographerObjectMediaTab))
+}
 
 
 async function initPageMedia() {
   // Récupère les datas des photographes
-  const PhotographersByMedia = await  getPhotographersByMedia();
+  const PhotographersByMedia = await getPhotographersByMedia();
   displayPhotographerMedia(PhotographersByMedia);
 };
 
