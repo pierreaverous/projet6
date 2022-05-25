@@ -58,7 +58,7 @@ async function getPhotographersByMedia() {
 
   /* console.log(photographerToDisplay) */
   // et bien retourner le tableau photographers seulement une fois
-  console.log(mediasToDisplay)
+  /* console.log(mediasToDisplay) */
   return mediasToDisplay
 }
 
@@ -66,11 +66,11 @@ async function getPhotographersByMedia() {
 async function displayPhotographerMedia(photographerObjectMediaTab) {
   console.log(photographerObjectMediaTab)
   const photographerMedia = document.querySelector('.photograph-media-cards');
-  /* console.log(photographerObject) */
-
-  let index = 0;
-  photographerObjectMediaTab.forEach((photographerObjMedia) => {
-   
+  
+  
+  
+  photographerObjectMediaTab.forEach((photographerObjMedia, index) => {
+    
     const photographerModelById = MediaFactoryPage(photographerObjMedia);
     const userCardByIdDOM = photographerModelById.createMediaDOMPage();
     /*  console.log(userCardByIdDOM) */
@@ -78,16 +78,44 @@ async function displayPhotographerMedia(photographerObjectMediaTab) {
 
     addEventModal(userCardByIdDOM, index, photographerObjectMediaTab)
     ////Ajout de la fonction pour la light box prendre exemple au dessus re creer un dom dans das lightboxjs
-    index += 1;
-   
-   
+    // on est allez selectioné l'icon on lui a aplliquer un evenement en allant chercher dans le tableau la propriété like ( photographerObjectMediaTab[index].likes++)
+   const  likesNumber = (userCardByIdDOM.querySelector('.like-number')) 
+   /* console.log( userCardByIdDOM.querySelector('.heart-icon')) */
+   userCardByIdDOM.querySelector('.heart-icon').addEventListener('click', () => {
+     photographerObjectMediaTab[index].likes++ // on la incémenter 
+     // on est allez cherchez l'affichage du nombre de likes et on lui a ajouté ca nouvelle valeur avec photographerObjectMediaTab[index].likes
+     likesNumber.textContent = photographerObjectMediaTab[index].likes;
+   })
+    /* console.log(index) */
+    // je crée la variable like qui contient mon tableau 
+  const like = photographerObjectMediaTab;
+  // je creé la variabla like qui est un nouveau tableau ou on est allé selectionné que les likes
+  let likes = like.map(element =>{
+    return element.likes
   })
+  console.log(likes)
+  // et je fait la sum de tout les likes dans le tableau 
+  let sum = 0;
+  
+  for (let i = 0; i < likes.length; i++) {
+    sum += likes[i];
+  }
+  console.log(sum)
+  /* const  sumLike = (userCardByIdDOM.querySelector('.like-total'))
+  sumLike.textContent = sum 
+  console.log(sumLike) */
+ 
 
+  })
+ 
 };
 
 function addEventModal(userCardByIdDOM, index, photographerObjectMediaTab) {
   userCardByIdDOM.addEventListener('click', () => displayModalLightbox(index, photographerObjectMediaTab))
 }
+
+
+
 
 
 async function initPageMedia() {

@@ -1,8 +1,8 @@
 function photographerFactory(data) {
-    const { name, portrait, id, city, country, tagline, price } = data;
+    const { name, portrait, id, city, country, tagline, price,  } = data;
 
     const picture = `assets/photographers/${portrait}`;
-
+    // dom de la premiere page des photographes
     function getUserCardDOM() {
         const article = document.createElement('article');
         const img = document.createElement('img');
@@ -48,10 +48,11 @@ function photographerFactory(data) {
 // page photographe individuelle 
 
 function photographerFactoryPage(dataID) {
-  const { name, portrait, id, city, country, tagline, price } = dataID;
-
+  
+  const { name, portrait, id, city, country, tagline, price, likes  } = dataID;
+  
   const picture = `assets/photographers/${portrait}`;
-
+   // dom du header de la page photographer id 
   function createPhotographerCardDOMPage() {
     const article = document.createElement('article');
     const div = document.createElement('div');
@@ -66,6 +67,10 @@ function photographerFactoryPage(dataID) {
     h2.textContent = `${city}, ${country}`;
     const h3 = document.createElement('h3');
     h3.textContent = tagline;
+    const div_price = document.createElement('div');
+    div_price.textContent = `${price}€ /jour`
+    const totalLike = document.createElement('h2');
+    h2.textContent = likes;
     
     const span = document.createElement('span');
     span.innerHTML = '<button tabindex="4" class="contact-button" role="button" onclick="displayModal()">Contactez-moi</button>';
@@ -78,6 +83,9 @@ function photographerFactoryPage(dataID) {
     div.classList.add("divTextHeader")
     divPhoto.classList.add("divPhoto")
     divButton.classList.add("divButton")
+    div_price.classList.add("div_prix_day")
+    totalLike.classList.add("like-total")
+
    
 
     //ce qui apparais dans la page photographer
@@ -89,7 +97,10 @@ function photographerFactoryPage(dataID) {
     div.appendChild(h1);
     div.appendChild(h2);
     div.appendChild(h3);
+    article.appendChild(div_price);
+    div_price.appendChild(totalLike)
 
+    
       return (article);
   }
   return { name, picture,createPhotographerCardDOMPage }
@@ -97,13 +108,13 @@ function photographerFactoryPage(dataID) {
 
 //Media Factory 
 class Media {
-  constructor ({title , id, date , photographerId, like, price, src}
+  constructor ({title , id, date , photographerId, likes, price, src}
     ){
     this.title = title;
     this.id = id;
     this.date = date;
     this.photographerId = photographerId;
-    this.like  = like ;
+    this.likes  = likes ;
     this.price =price;
     this.src = src;
     
@@ -124,6 +135,10 @@ class MediaImg extends Media{
     const article = document.createElement('article');
     const div = document.createElement('div');
     const img = document.createElement('img');
+    const h2 = document.createElement('h2');
+    h2.textContent = this.likes;
+    const svg = document.createElement('img')
+    svg.setAttribute('src', './assets/icons/heart-regular.svg')
     img.setAttribute('src',`/assets/photographers/${this.photographerId}/${this.src}`);
     img.innerHTML = '<role="button" onclick="displayModal()"></button>';
     
@@ -133,13 +148,20 @@ class MediaImg extends Media{
     // ajout des classe pour le css
     img.classList.add("PhotographMedia");
     h1.classList.add("titleMedia")
+    div.classList.add("photographeText")
+    h2.classList.add("like-number")
+    svg.classList.add("heart-icon")
     
    
 
     //ce qui apparais dans la page photographer
     article.appendChild(img);
     article.appendChild(div);
-    article.appendChild(h1);
+    div.appendChild(h1);
+    div.appendChild(h2);
+    div.appendChild(svg)
+    /* console.log(h2)
+     */
   
 
 
@@ -185,8 +207,11 @@ class MediaVideo extends Media{
   }
   createMediaDOMPage(){
     const article = document.createElement('article');
-    const video = document.createElement('video')
-    const src = document.createElement('source')
+    const video = document.createElement('video');
+    const src = document.createElement('source');
+    const div = document.createElement('div');
+    const svg = document.createElement('img')
+    svg.setAttribute('src', './assets/icons/heart-regular.svg')
     
    video.setAttribute('src',`/assets/photographers/${this.photographerId}/${this.src}`);
    video.setAttribute("type", "video/mp4");
@@ -198,6 +223,10 @@ class MediaVideo extends Media{
    
    const h1 = document.createElement('h1');
    h1.textContent = this.title;
+   const h2 = document.createElement('h2');
+    h2.textContent = this.likes;
+
+    
   
     // ajout des classe pour le css
     
@@ -205,6 +234,10 @@ class MediaVideo extends Media{
    
     video.classList.add("video-card");
     h1.classList.add("titleMedia");
+    div.classList.add("photographeText")
+    h2.classList.add("like-number")
+    svg.classList.add("heart-icon")
+
     
     
     
@@ -216,7 +249,10 @@ class MediaVideo extends Media{
     
     article.appendChild(video);
     video.appendChild(src);
-    article.appendChild(h1);
+    article.appendChild(div);
+    div.appendChild(h1);
+    div.appendChild(h2);
+    div.appendChild(svg)
 
    
     
@@ -276,7 +312,6 @@ function MediaFactoryPage(data) {
     return new MediaVideo(data)
   }
 }
-
 
 
 

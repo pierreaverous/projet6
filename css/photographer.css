@@ -96,7 +96,17 @@ form input {
     display: flex;
 
 }
-
+.div_prix_day{
+    right: 50px;
+    position: absolute;
+    bottom: -94rem;
+    background-color: #DB8876;
+    padding:20px; 
+    border-radius: 5px;
+    font-size: 24px;
+    color: #000;
+    font-weight: 900;
+}
 .Photograph{
     height: 200px;
     width: 200px;
@@ -147,7 +157,7 @@ form input {
 
 .PhotographMedia{
     height: 350px;
-    width: 300px;
+    width: 450px;
     border-radius: 8px;
     margin: 30px;
     
@@ -157,21 +167,58 @@ form input {
     top: 8.9rem;*/
 } 
 
+@media (max-width: 1440px) {
+.PhotographMedia{
+  width: 350px;
+ } 
+}
+
+@media (max-width: 1024px) {
+    .PhotographMedia{
+      width: 250px;
+     } 
+    }
+
 video{
     object-fit: cover;
 }
 .video-card{
-    width: 300px;
+    width: 450px;
     height: 350px;
     border-radius: 8px;
     margin: 30px;
     object-fit: cover;
     
 }
+@media (max-width: 1440px) {
+    .video-card{
+        width: 350px;
+    } 
+}
+@media (max-width: 1024px) {
+    .video-card{
+        width: 250px;
+    } 
+}
 
-.titleMedia{
+
+.photographeText{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     margin: 30px;
-    margin-top: -5%
+    margin-top: -5%;
+    align-items: center;
+
+}
+
+.like-number{
+    color: #901C1C;
+    font-size: 24px;
+    margin-left: auto;
+}
+
+.heart-icon{
+    width: 24px;
+    height: 24px;
+    padding-left: 7px;
 }
