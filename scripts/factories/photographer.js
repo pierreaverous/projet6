@@ -49,7 +49,7 @@ function photographerFactory(data) {
 
 function photographerFactoryPage(dataID) {
   
-  const { name, portrait, id, city, country, tagline, price, likes  } = dataID;
+  const { name, portrait, id, city, country, tagline, price,   } = dataID;
   
   const picture = `assets/photographers/${portrait}`;
    // dom du header de la page photographer id 
@@ -67,11 +67,7 @@ function photographerFactoryPage(dataID) {
     h2.textContent = `${city}, ${country}`;
     const h3 = document.createElement('h3');
     h3.textContent = tagline;
-    const div_price = document.createElement('div');
-    div_price.textContent = `${price}€ /jour`
-    const totalLike = document.createElement('h2');
-    h2.textContent = likes;
-    
+   
     const span = document.createElement('span');
     span.innerHTML = '<button tabindex="4" class="contact-button" role="button" onclick="displayModal()">Contactez-moi</button>';
     // ajout des classe pour le css
@@ -83,8 +79,8 @@ function photographerFactoryPage(dataID) {
     div.classList.add("divTextHeader")
     divPhoto.classList.add("divPhoto")
     divButton.classList.add("divButton")
-    div_price.classList.add("div_prix_day")
-    totalLike.classList.add("like-total")
+    
+    /* totalLike.classList.add("like-total") */
 
    
 
@@ -97,8 +93,8 @@ function photographerFactoryPage(dataID) {
     div.appendChild(h1);
     div.appendChild(h2);
     div.appendChild(h3);
-    article.appendChild(div_price);
-    div_price.appendChild(totalLike)
+    
+    /* div_price.appendChild(totalLike) */
 
     
       return (article);

@@ -96,17 +96,7 @@ form input {
     display: flex;
 
 }
-.div_prix_day{
-    right: 50px;
-    position: absolute;
-    bottom: -94rem;
-    background-color: #DB8876;
-    padding:20px; 
-    border-radius: 5px;
-    font-size: 24px;
-    color: #000;
-    font-weight: 900;
-}
+
 .Photograph{
     height: 200px;
     width: 200px;
@@ -221,4 +211,41 @@ video{
     width: 24px;
     height: 24px;
     padding-left: 7px;
+}
+
+
+.likeAndprice{
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-around;
+  background-color:#DB8876;
+  width: 300px;
+  border-radius: 5px;
+  position: absolute;
+  right: 0;
+  bottom: -92rem
+ 
+
+}
+
+.heart-footer{
+    width: 18px;
+    height: 20px;
+    color: #000;
+    padding-right: 65px;
+}
+
+#total-like{
+    font-size: 24px;
+    color: #000;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+#div_prix_day{
+    font-size: 24px;
+    color: #000;
+    font-weight: bold;
+    padding-right: 10px;
 }
