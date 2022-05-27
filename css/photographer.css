@@ -96,6 +96,43 @@ form input {
     display: flex;
 
 }
+.filter{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin-top: 15px;
+}
+.first-trier{
+    margin-left: 98px;
+}
+
+i{
+    color: #FAFAFA;
+    font-size: 24px;
+    transform: rotate(180deg);
+    
+}
+.arrow-populaire{
+    background-color: #901C1C;
+    width: 150px;
+    color: #FAFAFA;
+    display: flex;
+    justify-content: center;
+    padding: 0px 10px 0px 10px;
+    margin-left: 15px;
+    align-items: baseline;
+    border-radius: 8px;
+    
+    
+}
+#trier{
+    
+    width: 150px;
+    color: #FAFAFA;
+    display: flex;
+    justify-content: center;
+  
+}
 
 .Photograph{
     height: 200px;
@@ -222,12 +259,13 @@ video{
   background-color:#DB8876;
   width: 300px;
   border-radius: 5px;
-  position: absolute;
-  right: 0;
-  bottom: -92rem
+  position: fixed;
+  right: 45px;
+  bottom: 0px;
  
 
 }
+
 
 .heart-footer{
     width: 18px;
@@ -249,3 +287,64 @@ video{
     font-weight: bold;
     padding-right: 10px;
 }
+
+
+.dropbtn {
+    background-color: #901C1C;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: flex;
+    align-items: baseline;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #901C1C;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 15;
+    top: 58px;
+    left: 205px;
+    width: 170px;
+    cursor: pointer;
+  }
+  
+  .dropdown-content p {
+    color: #FAFAFA;
+    padding: 12px 40px;
+    text-decoration: none;
+    display: block;
+    border-bottom: #FAFAFA;
+    border-width: 1px;
+    justify-content:flex-start;
+    display: flex;
+    margin-right: 20px;
+    cursor: pointer;
+  }
+
+  .arrow-populaire{
+    background-color: #901C1C;
+    width: 150px;
+    color: #FAFAFA;
+    display: flex;
+    justify-content: center;
+    padding: 0px 10px 0px 10px;
+    margin-left: 15px;
+    align-items: baseline;
+    border-radius: 8px;
+    
+    
+}
+.dropdown-content p:hover {background-color: #901C1C;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #901C1C;}

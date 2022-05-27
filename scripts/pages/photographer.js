@@ -25,8 +25,6 @@ async function getPhotographersById() {
     const priceForDay = document.getElementById('div_prix_day')
     priceForDay.textContent = `${prices} € / jour`
     console.log(priceForDay)
- 
-    
     return photographerToDisplay
 }
 /* console.log(getPhotographersById()) */
@@ -73,7 +71,7 @@ async function getPhotographersByMedia() {
 }
 
 
-var  sum = 0;
+
 
 async function displayPhotographerMedia(photographerObjectMediaTab) {
   console.log(photographerObjectMediaTab)
@@ -82,19 +80,14 @@ async function displayPhotographerMedia(photographerObjectMediaTab) {
     /* console.log(photographerObjectMediaTab) */
   const like = photographerObjectMediaTab;
   // je creé la variabla like qui est un nouveau tableau ou on est allé selectionné que les likes
-  let likes = like.map(element =>{
-    return element.likes
-  })
-  console.log(likes)
-  // et je fait la sum de tout les likes dans le tableau 
-  
-  for (let i = 0; i < likes.length; i++) {
-    sum += likes[i];
+  function getNumberOfLike () {
+    return  like.map(element =>{
+      return element.likes
+    }).reduce((accum, current) => accum + current)
   }
-  console.log(sum)
-
-
   
+  
+  // et je fait la sum de tout les likes dans le tableau 
   
   photographerObjectMediaTab.forEach((photographerObjMedia, index) => {
     
@@ -112,13 +105,14 @@ async function displayPhotographerMedia(photographerObjectMediaTab) {
       photographerObjectMediaTab[index].likes++ // on la incémenter 
       // on est allez cherchez l'affichage du nombre de likes et on lui a ajouté ca nouvelle valeur avec photographerObjectMediaTab[index].likes
       likesNumber.textContent = photographerObjectMediaTab[index].likes;
+      totalLikes.textContent = getNumberOfLike();
      
     })
 
   })
   
   const totalLikes = document.getElementById('total-like')
-  totalLikes.textContent = sum ;
+  totalLikes.textContent = getNumberOfLike() ;
   console.log(totalLikes)
 
 };
@@ -135,8 +129,68 @@ async function initPageMedia() {
   // Récupère les datas des photographes
   const PhotographersByMedia = await getPhotographersByMedia();
   displayPhotographerMedia(PhotographersByMedia);
+  // sort by popularité
+  
+  document.getElementById('populaire').addEventListener('click', () => {
+    PhotographersByMedia.sort((a, b) =>{
+      return b.likes - a.likes
+      
+     })
+    
+     });
+    
+  console.log( PhotographersByMedia.sort((a, b) =>{
+    return b.likes - a.likes
+    
+   }))
+
+   // sort par title
+   
+   
+   
+   document.getElementById('titre').addEventListener('click', () => {
+     PhotographersByMedia.sort((a, b) =>{
+      if(a.title< b.title) { return -1; }
+      if(a.title > b.title) { return 1; }
+      return 0;
+      
+     })
+
+   })
+
+   console.log(PhotographersByMedia.sort((a, b) =>{
+    if(a.title< b.title) { return -1; }
+    if(a.title > b.title) { return 1; }
+    return 0;
+    
+   }))
+
+   // sort par date 
+   
+   /* console.log(document.getElementById('populaire')) */
+   
+   document.getElementById('populaire').addEventListener('click', () => {
+     PhotographersByMedia.sort((a, b) =>{
+      return new Date(b.date) - new Date(a.date);
+      
+     })
+     
+   })
+
+   console.log( PhotographersByMedia.sort((a, b) =>{
+    return new Date(b.date) - new Date(a.date);
+    
+   }))
+  /* PhotographersByMedia.sort(filterpopularité())
+  PhotographersByMedia.sort(filterTitle()) */
 };
 
 initPageMedia();
 
 
+
+/*  document.getElementById('trier').addEventListener('click', () => {
+  PhotographersByMedia.sort((a, b) =>{ b.likes - a.likes
+    
+  })
+ }); */
