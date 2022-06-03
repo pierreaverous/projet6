@@ -121,7 +121,7 @@ class Media {
   }
 
 }
-
+// creation de l'article image
 class MediaImg extends Media{
   constructor(data){
     super({...data, src: data.image})
@@ -164,6 +164,7 @@ class MediaImg extends Media{
 
     return article;
   }
+  // creation de la modale light box
   createModalContent(){
     const article = document.createElement('article');
     const div = document.createElement('div');
@@ -196,6 +197,8 @@ class MediaImg extends Media{
 
   
 }
+
+//creation de l'article video 
 class MediaVideo extends Media{
   constructor(data){
     super({...data, src: data.video})

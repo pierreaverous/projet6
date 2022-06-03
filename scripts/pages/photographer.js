@@ -4,7 +4,7 @@ let idPhotograph = url.get("id");
 idPhotograph = parseInt(idPhotograph);
 console.log(idPhotograph)  */
 
-
+const date = document.getElementById('date')
 
 
 async function getPhotographersById() {
@@ -74,8 +74,10 @@ async function getPhotographersByMedia() {
 
 
 async function displayPhotographerMedia(photographerObjectMediaTab) {
-  console.log(photographerObjectMediaTab)
+  /* console.log(photographerObjectMediaTab) */
   const photographerMedia = document.querySelector('.photograph-media-cards');
+  photographerMedia.innerHTML = ''
+
    // je crée la variable like qui contient mon tableau 
     /* console.log(photographerObjectMediaTab) */
   const like = photographerObjectMediaTab;
@@ -113,7 +115,7 @@ async function displayPhotographerMedia(photographerObjectMediaTab) {
   
   const totalLikes = document.getElementById('total-like')
   totalLikes.textContent = getNumberOfLike() ;
-  console.log(totalLikes)
+  /* console.log(totalLikes) */
 
 };
 
@@ -131,61 +133,71 @@ async function initPageMedia() {
   displayPhotographerMedia(PhotographersByMedia);
   // sort by popularité
   
-  document.getElementById('populaire').addEventListener('click', () => {
+  document.getElementById('popularity').addEventListener('click', () => {
+    let dropdowns = document.getElementById("myDropdown");
+    dropdowns.classList.toggle("show")
+    button.classList.remove("hide")
     PhotographersByMedia.sort((a, b) =>{
-      return b.likes - a.likes
-      
-     })
+        return b.likes > a.likes? 1:-1
+      })
+      displayPhotographerMedia(PhotographersByMedia);
+  });
     
-     });
     
-  console.log( PhotographersByMedia.sort((a, b) =>{
-    return b.likes - a.likes
     
-   }))
+  
 
    // sort par title
    
    
    
    document.getElementById('titre').addEventListener('click', () => {
+    let dropdowns = document.getElementById("myDropdown");
+    dropdowns.classList.toggle("show")
+    button.classList.remove("hide")
      PhotographersByMedia.sort((a, b) =>{
       if(a.title< b.title) { return -1; }
       if(a.title > b.title) { return 1; }
       return 0;
       
      })
-
-   })
-
-   console.log(PhotographersByMedia.sort((a, b) =>{
-    if(a.title< b.title) { return -1; }
-    if(a.title > b.title) { return 1; }
-    return 0;
     
-   }))
+     displayPhotographerMedia(PhotographersByMedia);
+   });
+
+  
 
    // sort par date 
    
    /* console.log(document.getElementById('populaire')) */
-   
-   document.getElementById('populaire').addEventListener('click', () => {
+   console.log(document.getElementById('date'))
+   document.getElementById('date').addEventListener('click', () => {
+     let dropdowns = document.getElementById("myDropdown");
+     dropdowns.classList.toggle("show")
+     button.classList.remove("hide")
+     console.log(PhotographersByMedia)
      PhotographersByMedia.sort((a, b) =>{
-      return new Date(b.date) - new Date(a.date);
+       new Date(b.date) > new Date(a.date);
+       if(a.date > b.date) { return -1; }
+      if(a.date < b.date) { return 1; }
+      return 0;
+      })
+      console.log(PhotographersByMedia)
       
-     })
-     
-   })
+      displayPhotographerMedia(PhotographersByMedia);
+      });
 
-   console.log( PhotographersByMedia.sort((a, b) =>{
-    return new Date(b.date) - new Date(a.date);
+   
     
-   }))
+};
   /* PhotographersByMedia.sort(filterpopularité())
   PhotographersByMedia.sort(filterTitle()) */
-};
+
+
 
 initPageMedia();
+
+
 
 
 
