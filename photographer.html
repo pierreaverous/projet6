@@ -11,7 +11,7 @@
   </head>
   <body>
     <header>
-     <a href="./index.html"> <img src="assets/images/logo.png" class="logo" alt="image" /></a>
+     <a href="./index.html"> <img src="assets/images/logo.png" class="logo" alt="image" aria-label="boutton qui permet de revenir a la page des photographe" /></a>
     </header>
     <main id="main">
       <div class="photograph-header">
@@ -37,15 +37,14 @@
           <p id="trier">Trier par </p>
         
           <div id="arrow-populaire"class="arrow-populaire">
-            <button  id="populaire" class="dropbtn">Populaire
-              <i  id="arrow" class="fa-solid fa-angle-up"></i>
-          </button>
+            <button  id="populaire" class="dropbtn" aria-label="button pour afficher les autre options de triage ou pour trier par popularité">Populaire</button> 
+          <i  id="arrow" class="fa-solid fa-angle-up" aria-label="fleche vers le bas" aria-describedby="icon"></i>
           </div>
         </div>
         <div id="myDropdown" class="dropdown-content">
-          <p id="popularity">Populaire</p>
-          <p id="date">Date</p>
-          <p id="titre">Titre</p>
+          <p id="popularity" aria-label="button pour trier par popularité">Populaire <i id="arrow-up" class="fa-solid fa-angle-up" aria-label="fleche vers le haut" aria-describedby="icon"></i></p>
+          <p id="date" aria-label="button pour trier par date">Date</p>
+          <p id="titre" aria-label="button pour trier par titre">Titre</p>
          
         </div>
       </div> 
@@ -90,10 +89,10 @@
           <img src="assets/icons/close.svg" alt="close button" />
         </button>
         <button id="arrowLightbox">
-          <img src="./assets/icons/arrow.svg" alt="fleche pour naviguer">
+          <img src="./assets/icons/arrow.svg" alt="fleche pour naviguer par la gauche" aria-label="fleche pour naviguer par la gauche">
         </button>
         <button id="arrowLightboxleft">
-          <img src="./assets/icons/arrow.svg" alt="fleche pour naviguer">
+          <img src="./assets/icons/arrow.svg" alt="fleche pour naviguer par la droite" aria-label="fleche pour naviguer par la droite">
         </button>
         <div id="articleToShow">
         </div>
@@ -103,11 +102,11 @@
 		</div>
     <div>
       <div class="likeAndprice">
-        <p id="total-like"></p>
-        <img  class="heart-footer" src="./assets/icons/heart-regular-black.svg" alt="coeur">
+        <p id="total-like" aria-label="nombres de like de toutes les photos"></p>
+        <img  class="heart-footer" src="./assets/icons/heart-regular-black.svg" alt="coeur" aria-label="icon coeur">
    
        
-        <p id="div_prix_day"></p>
+        <p id="div_prix_day" aria-label="prix par jour"></p>
 
       </div>
     </div>

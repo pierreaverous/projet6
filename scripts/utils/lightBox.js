@@ -13,6 +13,10 @@ document.getElementById('modal-lightBox__close').addEventListener('click', () =>
 });
 
 var oldElement = null;
+
+
+  
+     
 // Display contact modal
 function displayModalLightbox(index, photographerObjectMediaTab) { // onclick
   if (oldElement != null)
@@ -44,24 +48,34 @@ function displayModalLightbox(index, photographerObjectMediaTab) { // onclick
 
   };
 
-  arrowLeft.addEventListener('click', prev)
-
-  arrowRight.addEventListener('click', next)
-
+  
+    
+    arrowLeft.addEventListener('click', prev)
+  
+    arrowRight.addEventListener('click', next)
+     
+    document.addEventListener('keyup', (event) => {
+     /* event.target.removeEventListener */
+     
+     event.preventDefault();
+   
+     console.log('null') 
+     if  (lightBoxModal.style.display === 'none') return  
+  
+     if (event.code === 'Escape') {
+       closeModalLightBox();
+     }
+     if (event.code === 'ArrowLeft') {
+       
+       displayModalLightbox(indexPrev, photographerObjectMediaTab);
+     }
+     if (event.code === 'ArrowRight') {
+       displayModalLightbox(indexNext, photographerObjectMediaTab);
+     }
+   });
+ 
   // evenement qui permet de changer d'image avec les fleche du clavier 
-  document.addEventListener('keyup', (event) => {
-    event.preventDefault();
-    if (event.code === 'Escape') {
-      closeModalLightBox();
-    }
-    if (event.code === 'ArrowLeft') {
-      
-      displayModalLightbox(indexPrev, photographerObjectMediaTab);
-    }
-    if (event.code === 'ArrowRight') {
-      displayModalLightbox(indexNext, photographerObjectMediaTab);
-    }
-  });
+
 
 
 
@@ -72,8 +86,10 @@ function displayModalLightbox(index, photographerObjectMediaTab) { // onclick
  
 
   articleToShow.appendChild(userCardByIdDOM);
+  
 
 }
+
 
 // Close contact modal
 function closeModalLightBox() {

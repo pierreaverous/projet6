@@ -135,6 +135,8 @@ async function initPageMedia() {
   
   document.getElementById('popularity').addEventListener('click', () => {
     let dropdowns = document.getElementById("myDropdown");
+    let firstButton = document.getElementById('populaire');
+    firstButton.textContent = "Populaire"
     dropdowns.classList.toggle("show")
     button.classList.remove("hide")
     PhotographersByMedia.sort((a, b) =>{
@@ -153,6 +155,8 @@ async function initPageMedia() {
    
    document.getElementById('titre').addEventListener('click', () => {
     let dropdowns = document.getElementById("myDropdown");
+    let firstButton = document.getElementById('populaire');
+    firstButton.textContent = "Titre"
     dropdowns.classList.toggle("show")
     button.classList.remove("hide")
      PhotographersByMedia.sort((a, b) =>{
@@ -175,6 +179,8 @@ async function initPageMedia() {
      let dropdowns = document.getElementById("myDropdown");
      dropdowns.classList.toggle("show")
      button.classList.remove("hide")
+     let firstButton = document.getElementById('populaire');
+     firstButton.textContent = "Date"
      console.log(PhotographersByMedia)
      PhotographersByMedia.sort((a, b) =>{
        new Date(b.date) > new Date(a.date);
