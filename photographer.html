@@ -11,20 +11,14 @@
   </head>
   <body>
     <header>
-     <a href="./index.html"> <img src="assets/images/logo.png" class="logo" alt="image" aria-label="boutton qui permet de revenir a la page des photographe" /></a>
+     <a tabindex="1" href="./index.html"> <img src="assets/images/logo.png" class="logo" alt="image" aria-label="boutton qui permet de revenir a la page des photographe" /></a>
     </header>
     <main id="main">
-      <div class="photograph-header">
+      <div  class="photograph-header">
         <!-- <button class="contact_button" onclick="displayModal()">Contactez-moi</button> -->
        
       </div>
-     
         
-        
-          
-          
-        </div>
-      </div> 
       <!-- <div class="filter">
         <div class="dropdown">
           <h2 class="first-trier"> Trier par </h2> -->
@@ -37,14 +31,14 @@
           <p id="trier">Trier par </p>
         
           <div id="arrow-populaire"class="arrow-populaire">
-            <button  id="populaire" class="dropbtn" aria-label="button pour afficher les autre options de triage ou pour trier par popularité">Populaire</button> 
+            <button  id="populaire" class="dropbtn" aria-label="bouton     pour afficher les autre options de triage ou pour trier par popularité">Populaire</button> 
           <i  id="arrow" class="fa-solid fa-angle-up" aria-label="fleche vers le bas" aria-describedby="icon"></i>
           </div>
         </div>
         <div id="myDropdown" class="dropdown-content">
-          <p id="popularity" aria-label="button pour trier par popularité">Populaire <i id="arrow-up" class="fa-solid fa-angle-up" aria-label="fleche vers le haut" aria-describedby="icon"></i></p>
-          <p id="date" aria-label="button pour trier par date">Date</p>
-          <p id="titre" aria-label="button pour trier par titre">Titre</p>
+          <p id="popularity" aria-label="bouton pour trier par popularité">Populaire <i id="arrow-up" class="fa-solid fa-angle-up" aria-label="fleche vers le haut" aria-describedby="icon"></i></p>
+          <button id="date"><p aria-label="bouton pour trier par date">Date</p> </button>
+          <button id="titre"><p aria-label="bouton pour trier par titre">Titre</p></button>
          
         </div>
       </div> 
@@ -55,44 +49,44 @@
 				<header>
           <h2>Contactez-moi</h2>
           <button class="modal__close">
-            <img src="assets/icons/close.svg" alt="close button" />
+            <img src="assets/icons/close.svg" alt="fermer le formulaire" />
           </button>
         </header>
 				<form>
 					<div>
 						<label>Prénom</label>
-						<input aria-label="text"/>
+						<input aria-label="entrer votre prenom"/>
 					</div>
           <div>
 						<label>Nom</label>
-						<input aria-label="text"/>
+						<input aria-label="entrer votre nom"/>
 					</div>
           <div>
 						<label>Email</label>
-						<input aria-label="text"/>
+						<input aria-label="entrer votre Email"/>
 					</div>
           <div>
 						<label> Votre message</label>
-						<input aria-label="text"/>
+						<input aria-label="entrer votre message"/>
 					</div>
-          <button class="contact_button">Envoyer</button>
+          <button aria-label="envoie le formulaire mon gatèw" class="contact_button">Envoyer</button>
 				</form>
 			</div>
 		</div>
-    <section class="photograph-media-cards">
+    <main class="photograph-media-cards">
 
       
-    </section>
+    </main>
     <div id="lightbox_modal">
 			<div class="modal-lightBox">
         <button id="modal-lightBox__close">
           <img src="assets/icons/close.svg" alt="close button" />
         </button>
         <button id="arrowLightbox">
-          <img src="./assets/icons/arrow.svg" alt="fleche pour naviguer par la gauche" aria-label="fleche pour naviguer par la gauche">
+          <img src="./assets/icons/arrow.svg" alt="flèche pour naviguer par la gauche" aria-label="flèche pour naviguer par la gauche">
         </button>
         <button id="arrowLightboxleft">
-          <img src="./assets/icons/arrow.svg" alt="fleche pour naviguer par la droite" aria-label="fleche pour naviguer par la droite">
+          <img src="./assets/icons/arrow.svg" alt="flèche pour naviguer par la droite" aria-label="flèche pour naviguer par la droite">
         </button>
         <div id="articleToShow">
         </div>

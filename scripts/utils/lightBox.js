@@ -18,84 +18,95 @@ var oldElement = null;
   
      
 // Display contact modal
+let currentIndex = 0;
 function displayModalLightbox(index, photographerObjectMediaTab) { // onclick
+  currentIndex = index
   if (oldElement != null)
     articleToShow.removeChild(oldElement)
   let photographerbOjectMedia = photographerObjectMediaTab[index]
  
-// on modifie l'index pour que quand on est au premier on arrive ensuite au dernier
-  let indexPrev = index - 1;
-  if (index == 0) {
-    indexPrev = photographerObjectMediaTab.length - 1;
-  }
-// on fait l'inverse de dernier au 1er
-  let indexNext = index + 1;
-  if (index == photographerObjectMediaTab.length - 1) {
-    indexNext = 0;
-  }
-
-// fonction next de l'evenement click qui permet de clear et ensuite afficher la prochaine photo 
-  let next = () => {
-    arrowRight.removeEventListener('click', next)
-    displayModalLightbox(indexNext, photographerObjectMediaTab)
-
-  };
-// fonction prev l'evenement click qui permet de remove et de clear et ensuite afficher la precedente photo 
-
-  let prev = () => {
-    arrowLeft.removeEventListener('click', prev)
-    displayModalLightbox(indexPrev, photographerObjectMediaTab)
-
-  };
-
-  
-    
-    arrowLeft.addEventListener('click', prev)
-  
-    arrowRight.addEventListener('click', next)
-     
-    document.addEventListener('keyup', (event) => {
-     /* event.target.removeEventListener */
-     
-     event.preventDefault();
-   
-     console.log('null') 
-     if  (lightBoxModal.style.display === 'none') return  
-  
-     if (event.code === 'Escape') {
-       closeModalLightBox();
-     }
-     if (event.code === 'ArrowLeft') {
-       
-       displayModalLightbox(indexPrev, photographerObjectMediaTab);
-     }
-     if (event.code === 'ArrowRight') {
-       displayModalLightbox(indexNext, photographerObjectMediaTab);
-     }
-   });
- 
-  // evenement qui permet de changer d'image avec les fleche du clavier 
-
-
-
-
   lightBoxModal.style.display = 'flex';
   const photographerModelById = MediaFactoryPage(photographerbOjectMedia);
   const userCardByIdDOM = photographerModelById.createModalContent();
   oldElement = userCardByIdDOM
- 
+
 
   articleToShow.appendChild(userCardByIdDOM);
-  
+
 
 }
 
+
+
+// on fait l'inverse de dernier au 1er
+document.addEventListener('keyup', (event) => {
+  /* event.target. */
+  
+  event.preventDefault();
+  
+  console.log('null') 
+  if  (lightBoxModal.style.display === 'none') return  
+  
+  if (event.code === 'Escape') {
+    closeModalLightBox();
+  }
+  
+  if (event.code === 'ArrowLeft') {
+    let indexPrev = currentIndex - 1;
+    if (currentIndex == 0) {
+      indexPrev = photographerMedias.length - 1;
+    }
+    displayModalLightbox(indexPrev, photographerMedias);
+  }
+  if (event.code === 'ArrowRight') {
+    let indexNext = currentIndex + 1;
+    if (currentIndex == photographerMedias.length - 1) {
+      indexNext = 0;
+    }
+    displayModalLightbox(indexNext, photographerMedias);
+  }
+});
+
+
+
+let next = () => {
+  console.log('fffff')
+  let indexNext = currentIndex + 1;
+  if (currentIndex == photographerMedias.length - 1) {
+    indexNext = 0;
+  }
+  displayModalLightbox(indexNext, photographerMedias) 
+};
+// fonction prev l'evenement click qui permet de remove et de clear et ensuite afficher la precedente photo 
+
+let prev = () => {
+  console.log('fffff')
+  let indexPrev = currentIndex - 1;
+  if (currentIndex == 0) {
+    indexPrev = photographerMedias.length - 1;
+  }
+  displayModalLightbox(indexPrev, photographerMedias)
+};
+
+arrowLeft.addEventListener('click', prev)
+
+arrowRight.addEventListener('click', next)
 
 // Close contact modal
 function closeModalLightBox() {
   lightBoxModal.style.display = 'none';
 }
 
+
+ document.addEventListener('keyup', (event) => {
+  
+   console.log('aaaaaa  ')
+    if (event.code === 'Enter'){
+      return lightBoxModal.style.display = 'flex';
+    }
+  
+
+}); 
 
 
 

@@ -73,6 +73,7 @@ async function getPhotographersByMedia() {
 
 
 
+let photographerMedias = []
 async function displayPhotographerMedia(photographerObjectMediaTab) {
   /* console.log(photographerObjectMediaTab) */
   const photographerMedia = document.querySelector('.photograph-media-cards');
@@ -90,6 +91,7 @@ async function displayPhotographerMedia(photographerObjectMediaTab) {
   
   
   // et je fait la sum de tout les likes dans le tableau 
+  photographerMedias = photographerObjectMediaTab
   
   photographerObjectMediaTab.forEach((photographerObjMedia, index) => {
     

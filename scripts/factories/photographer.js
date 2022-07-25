@@ -101,7 +101,7 @@ function photographerFactoryPage(dataID) {
     divButton.setAttribute("aria-label", 'button qui ouvre le formulaire')
     divButton.setAttribute("aria-describedBy", "button")
     h1.setAttribute("aria-label", `le ${name}du photographe `)
-    h2.setAttribute("aria-label", `la ${city} et le ${country} ou habite le photographe , `)
+    h2.setAttribute("aria-label", ` origine:${city} ${country} `)
     h3.setAttribute("aria-label", `la phrase d'accroche du photographe ${tagline}`)
     /* div_price.appendChild(totalLike) */
 
@@ -138,8 +138,8 @@ class MediaImg extends Media{
   }
   createMediaDOMPage(){
     const article = document.createElement('article');
-    const div = document.createElement('div');
     const img = document.createElement('img');
+    const div = document.createElement('div');
     const h2 = document.createElement('h2');
     h2.textContent = this.likes;
     const svg = document.createElement('img')
@@ -168,11 +168,10 @@ class MediaImg extends Media{
     /* console.log(h2)
      */
   
-    // accessibilité de l'article image 
+    // accessibilité de l'article image
+    img.setAttribute("tabindex","3")
     img.setAttribute("aria-label", `${this.title} est le titre de l'image`)
     img.setAttribute("aria-describedBy", "picture")
-    svg.setAttribute("aria-label", ` est l'icon d'un coeur`)
-    svg.setAttribute('aria-describedBy', "icon")
     h2.setAttribute("aria-label", `${this.likes} est le nombres de likes`)
     h1.setAttribute("aria-label", `${this.title} est le titre de l'image`)
     
@@ -206,7 +205,7 @@ class MediaImg extends Media{
     article.appendChild(h1);
 
     // Accesibilité pour la lightboxx
-    img.setAttribute("aria-label", `la photo s'appelle ${this.title}`)
+    img.setAttribute("tabindex", "4","aria-label", `la photo s'appelle ${this.title}`)
     h1.setAttribute("aria-label", `${this.title} est le titre de l'image`)
     
     
@@ -276,7 +275,7 @@ class MediaVideo extends Media{
     div.appendChild(svg)
 
    // Accesibilité Article video 
-   video.setAttribute("aria-label", `${this.title} est le titre de l'image`)
+   video.setAttribute("aria-label", `${this.title} est le titre de a video`)
    video.setAttribute("aria-describedBy", "video")
    svg.setAttribute("aria-label", ` est l'icon d'un coeur`)
    svg.setAttribute('aria-describedBy', "icon")
