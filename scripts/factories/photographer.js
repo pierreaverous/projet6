@@ -1,5 +1,5 @@
 function photographerFactory(data) {
-    const { name, portrait, id, city, country, tagline, price,  } = data;
+    const { name, portrait, id, city, country, tagline, price } = data;
 
     const picture = `assets/photographers/${portrait}`;
     // dom de la premiere page des photographes
@@ -169,6 +169,7 @@ class MediaImg extends Media{
      */
   
     // accessibilité de l'article image
+    
     img.setAttribute("tabindex","3")
     img.setAttribute("aria-label", `${this.title} est le titre de l'image`)
     img.setAttribute("aria-describedBy", "picture")
@@ -205,7 +206,8 @@ class MediaImg extends Media{
     article.appendChild(h1);
 
     // Accesibilité pour la lightboxx
-    img.setAttribute("tabindex", "4","aria-label", `la photo s'appelle ${this.title}`)
+    img.setAttribute("tabindex","4")
+    img.setAttribute("aria-label", `la photo s'appelle ${this.title}`)
     h1.setAttribute("aria-label", `${this.title} est le titre de l'image`)
     
     

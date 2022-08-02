@@ -26,6 +26,7 @@ function displayModalLightbox(index, photographerObjectMediaTab) { // onclick
   let photographerbOjectMedia = photographerObjectMediaTab[index]
  
   lightBoxModal.style.display = 'flex';
+  lightBoxModal.setAttribute("aria-hidden", "false");
   const photographerModelById = MediaFactoryPage(photographerbOjectMedia);
   const userCardByIdDOM = photographerModelById.createModalContent();
   oldElement = userCardByIdDOM
@@ -95,18 +96,9 @@ arrowRight.addEventListener('click', next)
 // Close contact modal
 function closeModalLightBox() {
   lightBoxModal.style.display = 'none';
+  lightBoxModal.setAttribute("arial-hidden", "true")
 }
 
-
- document.addEventListener('keyup', (event) => {
-  
-   console.log('aaaaaa  ')
-    if (event.code === 'Enter'){
-      return lightBoxModal.style.display = 'flex';
-    }
-  
-
-}); 
 
 
 

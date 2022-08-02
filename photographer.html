@@ -1,114 +1,130 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  </head>
-  <body>
-    <header>
-     <a tabindex="1" href="./index.html"> <img src="assets/images/logo.png" class="logo" alt="image" aria-label="boutton qui permet de revenir a la page des photographe" /></a>
-    </header>
-    <main id="main">
-      <div  class="photograph-header">
-        <!-- <button class="contact_button" onclick="displayModal()">Contactez-moi</button> -->
-       
-      </div>
-        
-      <!-- <div class="filter">
+
+<head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+  <title>Fisheye - photographe </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <header>
+    <a tabindex="1" href="./index.html"> <img src="assets/images/logo.png" class="logo" alt="image"
+        aria-label="boutton qui permet de revenir a la page des photographe" /></a>
+  </header>
+  <main id="main">
+    <div class="photograph-header">
+      <!-- <button class="contact_button" onclick="displayModal()">Contactez-moi</button> -->
+
+    </div>
+
+    <!-- <div class="filter">
         <div class="dropdown">
           <h2 class="first-trier"> Trier par </h2> -->
-          <!-- <div class="arrow-populaire"> -->
-          
-            
+    <!-- <div class="arrow-populaire"> -->
+
+
     <nav>
       <div class="dropdown">
         <div class="regroup">
           <p id="trier">Trier par </p>
-        
-          <div id="arrow-populaire"class="arrow-populaire">
-            <button  id="populaire" class="dropbtn" aria-label="bouton     pour afficher les autre options de triage ou pour trier par popularité">Populaire</button> 
-          <i  id="arrow" class="fa-solid fa-angle-up" aria-label="fleche vers le bas" aria-describedby="icon"></i>
+
+          <div id="arrow-populaire" class="arrow-populaire">
+            <button id="populaire" class="dropbtn"
+              aria-label="bouton     pour afficher les autre options de triage ou pour trier par popularité">Populaire</button>
+            <i id="arrow" class="fa-solid fa-angle-up" aria-label="fleche vers le bas" aria-describedby="icon"></i>
           </div>
         </div>
         <div id="myDropdown" class="dropdown-content">
-          <p id="popularity" aria-label="bouton pour trier par popularité">Populaire <i id="arrow-up" class="fa-solid fa-angle-up" aria-label="fleche vers le haut" aria-describedby="icon"></i></p>
-          <button id="date"><p aria-label="bouton pour trier par date">Date</p> </button>
-          <button id="titre"><p aria-label="bouton pour trier par titre">Titre</p></button>
-         
+          <p id="popularity" aria-label="bouton pour trier par popularité">Populaire <i id="arrow-up"
+              class="fa-solid fa-angle-up" aria-label="fleche vers le haut" aria-describedby="icon"></i></p>
+          <button id="date">
+            <p aria-label="bouton pour trier par date">Date</p>
+          </button>
+          <button id="titre">
+            <p aria-label="bouton pour trier par titre">Titre</p>
+          </button>
+
         </div>
-      </div> 
+      </div>
     </nav>
-    </main>
+  </main>
+  <div aria-hidden="true">
     <div id="contact_modal">
-			<div class="modal">
-				<header>
+      <div class="modal">
+        <header>
           <h2>Contactez-moi</h2>
           <button class="modal__close">
             <img src="assets/icons/close.svg" alt="fermer le formulaire" />
           </button>
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input aria-label="entrer votre prenom"/>
-					</div>
+        <form>
           <div>
-						<label>Nom</label>
-						<input aria-label="entrer votre nom"/>
-					</div>
+            <label>Prénom</label>
+            <input aria-label="entrer votre prenom" />
+          </div>
           <div>
-						<label>Email</label>
-						<input aria-label="entrer votre Email"/>
-					</div>
+            <label>Nom</label>
+            <input aria-label="entrer votre nom" />
+          </div>
           <div>
-						<label> Votre message</label>
-						<input aria-label="entrer votre message"/>
-					</div>
+            <label>Email</label>
+            <input aria-label="entrer votre Email" />
+          </div>
+          <div>
+            <label> Votre message</label>
+            <input aria-label="entrer votre message" />
+          </div>
           <button aria-label="envoie le formulaire mon gatèw" class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
-    <main class="photograph-media-cards">
-
-      
-    </main>
-    <div id="lightbox_modal">
-			<div class="modal-lightBox">
-        <button id="modal-lightBox__close">
-          <img src="assets/icons/close.svg" alt="close button" />
-        </button>
-        <button id="arrowLightbox">
-          <img src="./assets/icons/arrow.svg" alt="flèche pour naviguer par la gauche" aria-label="flèche pour naviguer par la gauche">
-        </button>
-        <button id="arrowLightboxleft">
-          <img src="./assets/icons/arrow.svg" alt="flèche pour naviguer par la droite" aria-label="flèche pour naviguer par la droite">
-        </button>
-        <div id="articleToShow">
-        </div>
-			</div>
-
-
-		</div>
-    <div>
-      <div class="likeAndprice">
-        <p id="total-like" aria-label="nombres de like de toutes les photos"></p>
-        <img  class="heart-footer" src="./assets/icons/heart-regular-black.svg" alt="coeur" aria-label="icon coeur">
-   
-       
-        <p id="div_prix_day" aria-label="prix par jour"></p>
-
+        </form>
       </div>
     </div>
-    <script src="./scripts/utils/filter.js"></script>
-    <script src="./scripts/utils/lightBox.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="./scripts/factories/photographer.js"></script>
-    
-  </body>
+    <main class="photograph-media-cards">
+  
+  
+    </main>
+  </div>
+  <div id="lightbox_modal" aria-modal="true">
+    <div class="modal-lightBox">
+      <button id="modal-lightBox__close">
+        <img src="assets/icons/close.svg" alt="close button" tabindex="5" />
+      </button>
+      <button id="arrowLightbox">
+        <img src="./assets/icons/arrow.svg" alt="flèche pour naviguer par la gauche"
+          aria-label="flèche pour naviguer par la gauche" tabindex="6">
+      </button>
+      <button id="arrowLightboxleft">
+        <img src="./assets/icons/arrow.svg" alt="flèche pour naviguer par la droite"
+          aria-label="flèche pour naviguer par la droite" tabindex="7">
+      </button>
+      <div id="articleToShow">
+      </div>
+    </div>
+
+
+  </div>
+  <div>
+    <div class="likeAndprice">
+      <p id="total-like" aria-label="nombres de like de toutes les photos"></p>
+      <img class="heart-footer" src="./assets/icons/heart-regular-black.svg" alt="coeur" aria-label="icon coeur">
+
+
+      <p id="div_prix_day" aria-label="prix par jour"></p>
+
+    </div>
+  </div>
+  <script src="./scripts/utils/filter.js"></script>
+  <script src="./scripts/utils/lightBox.js"></script>
+  <script src="/scripts/utils/contactForm.js"></script>
+  <script src="/scripts/pages/photographer.js"></script>
+  <script src="./scripts/factories/photographer.js"></script>
+
+</body>
+
 </html>

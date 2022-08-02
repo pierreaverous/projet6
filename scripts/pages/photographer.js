@@ -20,11 +20,10 @@ async function getPhotographersById() {
     
     /*  console.log(photographerToDisplay) */
     // et bien retourner le tableau photographers seulement une fois
-    const prices = photographerToDisplay.price;
-    console.log(prices)
+    const prices = photographerToDisplay.price
     const priceForDay = document.getElementById('div_prix_day')
     priceForDay.textContent = `${prices} € / jour`
-    console.log(priceForDay)
+  
     return photographerToDisplay
 }
 /* console.log(getPhotographersById()) */
@@ -103,7 +102,7 @@ async function displayPhotographerMedia(photographerObjectMediaTab) {
     addEventModal(userCardByIdDOM, index, photographerObjectMediaTab)
     ////Ajout de la fonction pour la light box prendre exemple au dessus re creer un dom dans das lightboxjs
     // on est allez selectioné l'icon on lui a aplliquer un evenement en allant chercher dans le tableau la propriété like ( photographerObjectMediaTab[index].likes++)
-    const  likesNumber = (userCardByIdDOM.querySelector('.like-number')) 
+    const likesNumber = (userCardByIdDOM.querySelector('.like-number')) 
     /* console.log( userCardByIdDOM.querySelector('.heart-icon')) */
     userCardByIdDOM.querySelector('.heart-icon').addEventListener('click', () => {
       photographerObjectMediaTab[index].likes++ // on la incémenter 
@@ -116,13 +115,21 @@ async function displayPhotographerMedia(photographerObjectMediaTab) {
   })
   
   const totalLikes = document.getElementById('total-like')
-  totalLikes.textContent = getNumberOfLike() ;
+  totalLikes.textContent = getNumberOfLike();
   /* console.log(totalLikes) */
 
 };
 
 function addEventModal(userCardByIdDOM, index, photographerObjectMediaTab) {
-  userCardByIdDOM.addEventListener('click', () => displayModalLightbox(index, photographerObjectMediaTab))
+  userCardByIdDOM.addEventListener('click', () => displayModalLightbox(index, photographerObjectMediaTab ))
+  userCardByIdDOM.addEventListener('keyup', (event) => {
+   
+     if (event.code === 'Enter'){
+      displayModalLightbox(index, photographerObjectMediaTab )
+     }
+   
+  
+  }); 
 }
 
 
