@@ -15,19 +15,12 @@ async function getPhotographers() {
 
 }
 
-async function init() {
-    // Récupère les datas des photographes
-    const { photographers } = await getPhotographers();
-    displayData(photographers);
-};
-
-init();
 
 async function displayData(photographers) {
     const photographersSection = document.querySelector(".photographer_section");
     console.log(photographerFactory(photographers))
     photographers.forEach((photographer) => {
-        const photographerModel = this.photographerFactory(photographer);
+        const photographerModel = photographerFactory(photographer); // A enlever le this si jamais ca marche en deploiment 
         const userCardDOM = photographerModel.getUserCardDOM();
         photographersSection.appendChild(userCardDOM);
     });
@@ -36,3 +29,11 @@ async function displayData(photographers) {
 
 
 
+
+async function init() {
+    // Récupère les datas des photographes
+    const { photographers } = await getPhotographers();
+    displayData(photographers);
+};
+
+init();
