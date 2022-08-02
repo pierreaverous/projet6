@@ -15,10 +15,17 @@ async function getPhotographers() {
 
 }
 
+async function init() {
+    // Récupère les datas des photographes
+    const { photographers } = await getPhotographers();
+    displayData(photographers);
+};
+
+init();
 
 async function displayData(photographers) {
     const photographersSection = document.querySelector(".photographer_section");
-
+    console.log(photographerFactory(photographers))
     photographers.forEach((photographer) => {
         const photographerModel = photographerFactory(photographer);
         const userCardDOM = photographerModel.getUserCardDOM();
@@ -27,12 +34,5 @@ async function displayData(photographers) {
 };
 
 
-async function init() {
-    // Récupère les datas des photographes
-    const { photographers } = await getPhotographers();
-    displayData(photographers);
-};
-
-init();
 
 
