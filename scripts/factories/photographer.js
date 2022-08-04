@@ -235,12 +235,12 @@ class MediaVideo extends Media{
     const svg = document.createElement('img')
     svg.setAttribute('src', './assets/icons/heart-regular.svg')
     
-   video.setAttribute('src',`./assets/photographers/${this.photographerId}/${this.src}`);
+   video.setAttribute('src',`assets/photographers/${this.photographerId}/${this.src}`);
    video.setAttribute("type", "video/mp4");
-   video.setAttribute("poster", `./assets/photographers/${this.photographerId}/${this.src}`)
+   video.setAttribute("poster", `assets/photographers/${this.photographerId}/${this.src}`)
    video.setAttribute("controls", false);
    video.setAttribute("autoplay", false);
-   src.setAttribute('src', `./assets/photographers/${this.photographerId}/${this.src}`)
+   src.setAttribute('src', `assets/photographers/${this.photographerId}/${this.src}`)
    src.setAttribute('type', 'video/mp4')
    
    const h1 = document.createElement('h1');
@@ -287,19 +287,19 @@ class MediaVideo extends Media{
     return article;
   }
 
-  
+  // lightbox pour les vidéos 
 
   createModalContent(){
     const article = document.createElement('article');
     const video = document.createElement('video')
     const src = document.createElement('source')
     
-   video.setAttribute('src',`/assets/photographers/${this.photographerId}/${this.src}`);
+   video.setAttribute('src',`assets/photographers/${this.photographerId}/${this.src}`);
    video.setAttribute("type", "video/mp4");
-   video.setAttribute("poster", `./assets/photographers/${this.photographerId}/${this.src}`)
+   video.setAttribute("poster", `assets/photographers/${this.photographerId}/${this.src}`)
    video.setAttribute("controls", false);
    video.setAttribute("autoplay", false);
-   src.setAttribute('src', `./assets/photographers/${this.photographerId}/${this.src}`)
+   src.setAttribute('src', `assets/photographers/${this.photographerId}/${this.src}`)
    src.setAttribute('type', 'video/mp4')
    
    const h1 = document.createElement('h1');
