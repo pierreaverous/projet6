@@ -235,7 +235,7 @@ class MediaVideo extends Media{
     const svg = document.createElement('img')
     svg.setAttribute('src', './assets/icons/heart-regular.svg')
     
-   video.setAttribute('src',`/assets/photographers/${this.photographerId}/${this.src}`);
+   video.setAttribute('src',`./assets/photographers/${this.photographerId}/${this.src}`);
    video.setAttribute("type", "video/mp4");
    video.setAttribute("poster", `./assets/photographers/${this.photographerId}/${this.src}`)
    video.setAttribute("controls", false);
