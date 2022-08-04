@@ -235,12 +235,12 @@ class MediaVideo extends Media{
     const svg = document.createElement('img')
     svg.setAttribute('src', './assets/icons/heart-regular.svg')
     
-   video.setAttribute('src',`assets/photographers/${this.photographerId}/${this.src}`);
+   video.setAttribute('src',`./assets/photographers/${this.photographerId}/${this.src}`);
    video.setAttribute("type", "video/mp4");
-   video.setAttribute("poster", `assets/photographers/${this.photographerId}/${this.src}`)
+   video.setAttribute("poster", `./assets/photographers/${this.photographerId}/${this.src}`);
    video.setAttribute("controls", false);
    video.setAttribute("autoplay", false);
-   src.setAttribute('src', `assets/photographers/${this.photographerId}/${this.src}`)
+   src.setAttribute('src', `./assets/photographers/${this.photographerId}/${this.src}`);
    src.setAttribute('type', 'video/mp4')
    
    const h1 = document.createElement('h1');
@@ -256,9 +256,9 @@ class MediaVideo extends Media{
    
     video.classList.add("video-card");
     h1.classList.add("titleMedia");
-    div.classList.add("photographeText")
-    h2.classList.add("like-number")
-    svg.classList.add("heart-icon")
+    div.classList.add("photographeText");
+    h2.classList.add("like-number");
+    svg.classList.add("heart-icon");
 
     
     
@@ -277,12 +277,12 @@ class MediaVideo extends Media{
     div.appendChild(svg)
 
    // Accesibilité Article video 
-   video.setAttribute("aria-label", `${this.title} est le titre de a video`)
-   video.setAttribute("aria-describedBy", "video")
-   svg.setAttribute("aria-label", ` est l'icon d'un coeur`)
-   svg.setAttribute('aria-describedBy', "icon")
-   h2.setAttribute("aria-label", `${this.likes} est le nombres de likes`)
-   h1.setAttribute("aria-label", `${this.title} est le titre de l'image`)
+   video.setAttribute("aria-label", `${this.title} est le titre de a video`);
+   video.setAttribute("aria-describedBy", "video");
+   svg.setAttribute("aria-label", ` est l'icon d'un coeur`);
+   svg.setAttribute('aria-describedBy', "icon");
+   h2.setAttribute("aria-label", `${this.likes} est le nombres de likes`);
+   h1.setAttribute("aria-label", `${this.title} est le titre de l'image`);
     
     return article;
   }
@@ -294,12 +294,12 @@ class MediaVideo extends Media{
     const video = document.createElement('video')
     const src = document.createElement('source')
     
-   video.setAttribute('src',`assets/photographers/${this.photographerId}/${this.src}`);
+   video.setAttribute('src',`./assets/photographers/${this.photographerId}/${this.src}`);
    video.setAttribute("type", "video/mp4");
-   video.setAttribute("poster", `assets/photographers/${this.photographerId}/${this.src}`)
+   video.setAttribute("poster", `./assets/photographers/${this.photographerId}/${this.src}`);
    video.setAttribute("controls", false);
    video.setAttribute("autoplay", false);
-   src.setAttribute('src', `assets/photographers/${this.photographerId}/${this.src}`)
+   src.setAttribute('src', `./assets/photographers/${this.photographerId}/${this.src}`);
    src.setAttribute('type', 'video/mp4')
    
    const h1 = document.createElement('h1');
