@@ -186,7 +186,7 @@ class MediaImg extends Media{
     const article = document.createElement('article');
     const div = document.createElement('div');
     const img = document.createElement('img');
-    img.setAttribute('src',`./assets/photographers/${this.photographerId}/${this.src}`);
+    img.setAttribute('src',`assets/photographers/${this.photographerId}/${this.src}`);
     img.innerHTML = '<role="button" onclick="displayModal()"></button>';
     
     const h1 = document.createElement('h1');
