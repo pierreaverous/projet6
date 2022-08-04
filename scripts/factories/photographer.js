@@ -144,7 +144,7 @@ class MediaImg extends Media{
     h2.textContent = this.likes;
     const svg = document.createElement('img')
     svg.setAttribute('src', './assets/icons/heart-regular.svg')
-    img.setAttribute('src',`/assets/photographers/${this.photographerId}/${this.src}`);
+    img.setAttribute('src',`./assets/photographers/${this.photographerId}/${this.src}`);
     img.innerHTML = '<role="button" onclick="displayModal()"></button>';
     
     const h1 = document.createElement('h1');
