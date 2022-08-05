@@ -27,6 +27,8 @@ function displayModalLightbox(index, photographerObjectMediaTab) { // onclick
  
   lightBoxModal.style.display = 'flex';
   lightBoxModal.setAttribute("aria-hidden", "false");
+  onOpenModal()
+  togglePhotographeMediaArea()
   const photographerModelById = MediaFactoryPage(photographerbOjectMedia);
   const userCardByIdDOM = photographerModelById.createModalContent();
   oldElement = userCardByIdDOM
@@ -96,7 +98,9 @@ arrowRight.addEventListener('click', next)
 // Close contact modal
 function closeModalLightBox() {
   lightBoxModal.style.display = 'none';
-  lightBoxModal.setAttribute("arial-hidden", "true")
+  lightBoxModal.setAttribute("arial-hidden", "true");
+  onCloseModal();
+  togglePhotographeMediaArea();
 }
 
 

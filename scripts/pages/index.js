@@ -20,10 +20,11 @@ async function displayData(photographers) {
     const photographersSection = document.querySelector(".photographer_section");
     console.log(photographerFactory(photographers))
     photographers.forEach((photographer) => {
-         // A enlever le this si jamais ca marche en deploiment 
+        
         const userCardDOM = photographerFactory(photographer).getUserCardDOM();
         photographersSection.appendChild(userCardDOM);
     });
+    togglePhotographeMediaArea()
 };
 
 

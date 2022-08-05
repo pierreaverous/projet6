@@ -5,6 +5,17 @@ idPhotograph = parseInt(idPhotograph);
 console.log(idPhotograph)  */
 
 const date = document.getElementById('date')
+const cardPhotographe = document.querySelector('.photograph-media-cards')
+
+function  togglePhotographeMediaArea(){
+   if(cardPhotographe.getAttribute("arial-hidden") === "true"){
+     cardPhotographe.setAttribute("arial-hidden" ,"false")
+
+   }else{
+    cardPhotographe.setAttribute("arial-hidden" ,"true")
+   }
+
+};
 
 
 async function getPhotographersById() {
@@ -29,7 +40,7 @@ async function getPhotographersById() {
 /* console.log(getPhotographersById()) */
 
 async function displayPhotographer(photographerObject) {
-
+  
   const photographerHeader = document.querySelector('.photograph-header');
   /* console.log(photographerObject) */
   const photographerModelById = photographerFactoryPage(photographerObject);

@@ -69,7 +69,7 @@ function photographerFactoryPage(dataID) {
     h3.textContent = tagline;
    
     const span = document.createElement('span');
-    span.innerHTML = '<button tabindex="4" class="contact-button" role="button" onclick="displayModal()">Contactez-moi</button>';
+    span.innerHTML = '<button tabindex="12" class="contact-button" role="button" onclick="displayModal()">Contactez-moi</button>';
     // ajout des classe pour le css
     img.classList.add("Photograph");
     h1.classList.add('name');
