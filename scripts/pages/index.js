@@ -24,7 +24,8 @@ async function displayData(photographers) {
         const userCardDOM = photographerFactory(photographer).getUserCardDOM();
         photographersSection.appendChild(userCardDOM);
     });
-    togglePhotographeMediaArea()
+    togglePhotographeMediaArea();
+    toggleCardArea();
 };
 
 

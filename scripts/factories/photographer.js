@@ -152,6 +152,7 @@ class MediaImg extends Media{
     
     // ajout des classe pour le css
     img.classList.add("PhotographMedia");
+    article.classList.add("toggleCard")
     h1.classList.add("titleMedia")
     div.classList.add("photographeText")
     h2.classList.add("like-number")
@@ -170,11 +171,12 @@ class MediaImg extends Media{
   
     // accessibilité de l'article image
     
-    img.setAttribute("tabindex","3")
+    img.setAttribute("tabindex","2")
     img.setAttribute("aria-label", `${this.title} est le titre de l'image`)
     img.setAttribute("aria-describedBy", "picture")
     h2.setAttribute("aria-label", `${this.likes} est le nombres de likes`)
     h1.setAttribute("aria-label", `${this.title} est le titre de l'image`)
+    
     
 
 
@@ -206,7 +208,7 @@ class MediaImg extends Media{
     article.appendChild(h1);
 
     // Accesibilité pour la lightboxx
-    img.setAttribute("tabindex","4")
+    img.setAttribute("tabindex","3")
     img.setAttribute("aria-label", `la photo s'appelle ${this.title}`)
     h1.setAttribute("aria-label", `${this.title} est le titre de l'image`)
     
@@ -236,6 +238,7 @@ class MediaVideo extends Media{
     svg.setAttribute('src', './assets/icons/heart-regular.svg')
     
    video.setAttribute('src',`./assets/photographers/${this.photographerId}/${this.src}`);
+   video.setAttribute('tabindex','4')
    video.setAttribute("type", "video/mp4");
    video.setAttribute("poster", `./assets/photographers/${this.photographerId}/${this.src}`);
    video.setAttribute("controls", false);
@@ -296,9 +299,10 @@ class MediaVideo extends Media{
     
    video.setAttribute('src',`./assets/photographers/${this.photographerId}/${this.src}`);
    video.setAttribute("type", "video/mp4");
+   video.setAttribute("tabindex", "5")
    video.setAttribute("poster", `./assets/photographers/${this.photographerId}/${this.src}`);
    video.setAttribute("controls", false);
-   video.setAttribute("autoplay", false);
+   video.setAttribute("autoplay", "false");
    src.setAttribute('src', `./assets/photographers/${this.photographerId}/${this.src}`);
    src.setAttribute('type', 'video/mp4')
    

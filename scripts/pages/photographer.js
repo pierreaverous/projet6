@@ -5,17 +5,36 @@ idPhotograph = parseInt(idPhotograph);
 console.log(idPhotograph)  */
 
 const date = document.getElementById('date')
-const cardPhotographe = document.querySelector('.photograph-media-cards')
+
+function toggleCardArea(){
+  document.querySelectorAll(".toggleCard").forEach(cardDom => {
+    if (cardDom.getAttribute("aria-hidden") === "true"){
+      cardDom.setAttribute("aria-hidden", "false")
+    }else{
+      cardDom.setAttribute("aria-hidden", "true")
+    };
+    
+  })
+  
+  
+  
+}
+
 
 function  togglePhotographeMediaArea(){
-   if(cardPhotographe.getAttribute("arial-hidden") === "true"){
-     cardPhotographe.setAttribute("arial-hidden" ,"false")
+  const cardPhotographe = document.querySelector('.photograph-media-cards')
+   if(cardPhotographe.getAttribute("aria-hidden") === "true"){
+     cardPhotographe.setAttribute("aria-hidden" ,"false")
+     cardPhotographe.setAttribute("tabindex" ,"0")
 
    }else{
-    cardPhotographe.setAttribute("arial-hidden" ,"true")
+    cardPhotographe.setAttribute("aria-hidden" ,"true")
+    cardPhotographe.setAttribute("tabindex" ,"-1")
    }
 
 };
+
+
 
 
 async function getPhotographersById() {

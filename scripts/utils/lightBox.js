@@ -3,6 +3,7 @@ const lightBoxModal = document.getElementById('lightbox_modal')
 const articleToShow = document.getElementById('articleToShow')
 const arrowRight = document.getElementById('arrowLightboxleft')
 const arrowLeft = document.getElementById('arrowLightbox')
+const lightBoxModalHtml = document.querySelector('.modal-lightBox')
 
 
 // On keyup event, close contact modal
@@ -27,14 +28,21 @@ function displayModalLightbox(index, photographerObjectMediaTab) { // onclick
  
   lightBoxModal.style.display = 'flex';
   lightBoxModal.setAttribute("aria-hidden", "false");
+  lightBoxModalHtml.setAttribute("aria-hidden", "false")
+  
+
   onOpenModal()
   togglePhotographeMediaArea()
+  toggleCardArea();
   const photographerModelById = MediaFactoryPage(photographerbOjectMedia);
   const userCardByIdDOM = photographerModelById.createModalContent();
   oldElement = userCardByIdDOM
 
 
   articleToShow.appendChild(userCardByIdDOM);
+
+  const arrowLeft = document.querySelector("#arrowLightbox")
+  arrowLeft.focus()
 
 
 }
@@ -47,7 +55,7 @@ document.addEventListener('keyup', (event) => {
   
   event.preventDefault();
   
-  console.log('null') 
+  console.log(event.target) 
   if  (lightBoxModal.style.display === 'none') return  
   
   if (event.code === 'Escape') {
@@ -98,9 +106,11 @@ arrowRight.addEventListener('click', next)
 // Close contact modal
 function closeModalLightBox() {
   lightBoxModal.style.display = 'none';
-  lightBoxModal.setAttribute("arial-hidden", "true");
+  lightBoxModal.setAttribute("aria-hidden", "true");
+  lightBoxModalHtml.setAttribute("aria-hidden", "true")
   onCloseModal();
   togglePhotographeMediaArea();
+  toggleCardArea();
 }
 
 

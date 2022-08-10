@@ -6,9 +6,11 @@ const main = document.getElementById('main');
 const contactModal = document.getElementById('contact_modal')
 const onOpenModal = () => {
   main.setAttribute('aria-hidden', 'true');
+  main.setAttribute('tabindex', "-1")
 };
 const onCloseModal = () => {
   main.setAttribute('aria-hidden', 'false');
+  main.setAttribute('tabindex', "0")
 };
 
 // On keyup event, close contact modal
